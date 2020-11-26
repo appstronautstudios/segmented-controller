@@ -19,8 +19,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TableRow;
 
-import androidx.core.content.ContextCompat;
-
 public class SegmentedController extends RadioGroup implements RadioGroup.OnCheckedChangeListener {
 
     private int mStrokeWidth;
@@ -139,22 +137,25 @@ public class SegmentedController extends RadioGroup implements RadioGroup.OnChec
         for (int i = 0; i < childCount; i++) {
             RadioButton child = (RadioButton) super.getChildAt(i);
             Drawable[] generatedDrawables;
+            TableRow.LayoutParams params = new TableRow.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f);
             if (i == 0) {
                 // left
                 generatedDrawables = generateDrawableGroup(child.isChecked(), rLeft);
+                params.setMargins(0, 0, -mStrokeWidth, 0); // fix border overlap
             } else if (i == childCount - 1) {
                 // right
                 generatedDrawables = generateDrawableGroup(child.isChecked(), rRight);
             } else {
                 // middle
                 generatedDrawables = generateDrawableGroup(child.isChecked(), rMiddle);
+                params.setMargins(0, 0, -mStrokeWidth, 0); // fix border overlap
             }
 
             child.setButtonDrawable(null);
             child.setGravity(Gravity.CENTER);
-            child.setLayoutParams(new TableRow.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
             child.setBackground(generatedDrawables[1]);
             child.setTag(generatedDrawables[0]);
+            child.setLayoutParams(params);
         }
     }
 
@@ -186,7 +187,7 @@ public class SegmentedController extends RadioGroup implements RadioGroup.OnChec
 
         OptionDrawable(int color, int strokeWidth, float[] cornerRadii) {
             super();
-            setStroke(strokeWidth, ContextCompat.getColor(getContext(), android.R.color.black));
+            setStroke(strokeWidth, mTintColourChecked);
             setCornerRadii(cornerRadii);
             setColor(color);
         }

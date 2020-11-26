@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <com.appstronautstudios.library.SegmentedController
+        android:id="@+id/segmented1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sc_corner_radius="0dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="One" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Two" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Three" />
+    </com.appstronautstudios.library.SegmentedController>
+
+    <TextView
+        android:id="@+id/output1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+    <com.appstronautstudios.library.SegmentedController
+        android:id="@+id/segmented2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:sc_tint_color_selected="@android:color/holo_orange_dark">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YES" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO" />
+    </com.appstronautstudios.library.SegmentedController>
+
+    <TextView
+        android:id="@+id/output2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+    <com.appstronautstudios.library.SegmentedController
+        android:id="@+id/segmented3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:sc_border_width="2dp"
+        app:sc_corner_radius="10dp"
+        app:sc_tint_color_selected="@android:color/holo_red_dark"
+        app:sc_tint_color_unselected="@android:color/holo_red_light">
+
+        <RadioButton
+            android:id="@+id/apple_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apples" />
+
+        <RadioButton
+            android:id="@+id/orange_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oranges" />
+
+        <RadioButton
+            android:id="@+id/banana_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bananas" />
+
+        <RadioButton
+            android:id="@+id/kiwi_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kiwis" />
+    </com.appstronautstudios.library.SegmentedController>
+
+    <TextView
+        android:id="@+id/output3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+</LinearLayout>

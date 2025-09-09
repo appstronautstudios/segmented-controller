@@ -117,7 +117,8 @@ public class SegmentedController extends RadioGroup implements RadioGroup.OnChec
     }
 
     /**
-     * Programmatically check an item in this group.
+     * Programmatically check an item in this group. Important difference is that unlike check()
+     * this will only trigger the onCheckChangeListener once.
      *
      * @param id              The RadioButton id to check.
      * @param triggerListener Whether this should call the OnCheckedChangeListener.
@@ -130,7 +131,8 @@ public class SegmentedController extends RadioGroup implements RadioGroup.OnChec
         }
 
         // This will trigger onCheckedChanged normally (unless listener is null)
-        super.check(id);
+        RadioButton radioButton = findViewById(id);
+        radioButton.setChecked(true);
 
         // Restore listener
         mCheckListener = savedListener;

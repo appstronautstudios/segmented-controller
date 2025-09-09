@@ -1,13 +1,15 @@
-package com.appstronautstudios.segmentedcontroller;
+package com.appstronautstudios.segmentedcontrollerdemo;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.appstronautstudios.library.SegmentedController;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.appstronautstudios.segmentedcontroller.SegmentedController;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         SegmentedController segmentedController1 = findViewById(R.id.segmented1);
         SegmentedController segmentedController2 = findViewById(R.id.segmented2);
         SegmentedController segmentedController3 = findViewById(R.id.segmented3);
+        Button withOnClick = findViewById(R.id.with_onclick);
+        Button withoutOnClick = findViewById(R.id.without_onclick);
 
         segmentedController1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -44,6 +48,20 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 RadioButton selectedButton = radioGroup.findViewById(i);
                 output3.setText("you selected option with id: " + i + " with text: " + selectedButton.getText());
+            }
+        });
+
+        withoutOnClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                segmentedController1.checkItem(R.id.one, false);
+            }
+        });
+
+        withOnClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                segmentedController1.checkItem(R.id.two, true);
             }
         });
     }

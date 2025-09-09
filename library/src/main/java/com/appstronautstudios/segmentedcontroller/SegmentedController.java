@@ -1,4 +1,4 @@
-package com.appstronautstudios.library;
+package com.appstronautstudios.segmentedcontroller;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -114,6 +114,29 @@ public class SegmentedController extends RadioGroup implements RadioGroup.OnChec
         if (mCheckListener != null) {
             mCheckListener.onCheckedChanged(group, checkedId);
         }
+    }
+
+    /**
+     * Programmatically check an item in this group.
+     *
+     * @param id              The RadioButton id to check.
+     * @param triggerListener Whether this should call the OnCheckedChangeListener.
+     */
+    public void checkItem(int id, boolean triggerListener) {
+        // Temporarily disable listener if needed
+        OnCheckedChangeListener savedListener = mCheckListener;
+        if (!triggerListener) {
+            mCheckListener = null;
+        }
+
+        // This will trigger onCheckedChanged normally (unless listener is null)
+        super.check(id);
+
+        // Restore listener
+        mCheckListener = savedListener;
+
+        // Update lastCheckedId for transitions
+        lastCheckedId = id;
     }
 
     /**

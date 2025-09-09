@@ -8,18 +8,20 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
-    <com.appstronautstudios.library.SegmentedController
+    <com.appstronautstudios.segmentedcontroller.SegmentedController
         android:id="@+id/segmented1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:sc_corner_radius="0dp">
 
         <RadioButton
+            android:id="@+id/one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="One" />
 
         <RadioButton
+            android:id="@+id/two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Two" />
@@ -28,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Three" />
-    </com.appstronautstudios.library.SegmentedController>
+    </com.appstronautstudios.segmentedcontroller.SegmentedController>
 
     <TextView
         android:id="@+id/output1"
@@ -36,11 +38,11 @@
         android:layout_height="wrap_content"
         android:text="Hello World!" />
 
-    <com.appstronautstudios.library.SegmentedController
+    <com.appstronautstudios.segmentedcontroller.SegmentedController
         android:id="@+id/segmented2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/item_margin_large"
         app:sc_tint_color_selected="@android:color/holo_orange_dark">
 
         <RadioButton
@@ -52,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NO" />
-    </com.appstronautstudios.library.SegmentedController>
+    </com.appstronautstudios.segmentedcontroller.SegmentedController>
 
     <TextView
         android:id="@+id/output2"
@@ -60,11 +62,11 @@
         android:layout_height="wrap_content"
         android:text="Hello World!" />
 
-    <com.appstronautstudios.library.SegmentedController
+    <com.appstronautstudios.segmentedcontroller.SegmentedController
         android:id="@+id/segmented3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/item_margin_large"
         app:sc_border_width="2dp"
         app:sc_corner_radius="10dp"
         app:sc_tint_color_selected="@android:color/holo_red_dark"
@@ -93,12 +95,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Kiwis" />
-    </com.appstronautstudios.library.SegmentedController>
+    </com.appstronautstudios.segmentedcontroller.SegmentedController>
 
     <TextView
         android:id="@+id/output3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+
+    <Button
+        android:id="@+id/without_onclick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_margin_large"
+        android:text="programmatic check without onclick" />
+
+    <Button
+        android:id="@+id/with_onclick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="programmatic check with onclick" />
 
 </LinearLayout>
